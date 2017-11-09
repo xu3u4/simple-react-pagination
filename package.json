@@ -1,5 +1,5 @@
 {
-  "name": "react-webpack-starterkit",
+  "name": "react-pagination",
   "version": "0.1.0",
   "description": "A quick start for react+webpack, which includes basic packages and fundamental settings.",
   "main": "server.js",
@@ -61,7 +61,6 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^21.2.1",
     "node-sass": "^4.5.3",
-    "nodemon": "^1.11.0",
     "react-hot-loader": "^3.1.1",
     "react-test-renderer": "^16.0.0",
     "redux-devtools": "^3.4.0",
