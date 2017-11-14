@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import PagesContainer from 'js/components/pagination';
+import PagesContainer from 'js/components/pagination'
 
 const MainContainer = () => {
   const paginate = {items_per_page: 5, total: 50}
