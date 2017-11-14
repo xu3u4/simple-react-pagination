@@ -6,7 +6,7 @@ module.exports = {
     "mocha": true
   },
   "parser": "babel-eslint",
-  "extends": ["airbnb", "plugin:react/recommended"],
+  "extends": ["plugin:react/recommended"],
   "parserOptions": {
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
