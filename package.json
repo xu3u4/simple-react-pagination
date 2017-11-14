@@ -7,7 +7,7 @@
     "production": "export NODE_ENV=production && webpack && npm start",
     "dev": "export NODE_ENV=development && webpack-dev-server --devtool eval --progress --colors --content-base dist",
     "start": "nodemon server.js",
-    "eslint": "eslint src/js test",
+    "eslint": "eslint src --fix",
     "test:watch": "jest test --watch",
     "test": "jest test"
   },
@@ -33,7 +33,9 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.15.3",
+    "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
+    "query-string": "^5.0.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.5",

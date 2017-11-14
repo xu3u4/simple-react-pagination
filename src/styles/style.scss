@@ -1,33 +1,44 @@
-$primaryColor: #333300;
+$white: #fff;
+$gray-lighter: #ccc;
+$rakuten-red: #bf0000;
+$gray-dark: #555;
 
-button {
-  outline:none;
-  cursor: pointer;
+.pagination-wrapper {
+  text-align: center;
+  // no need on mall
+  ul {
+    padding: 0;
+  }
 }
 
-.countup {
-  width: 80px;
+.paginate-bar {
+  background-color: $white;
+  border: 1px solid $gray-lighter;
+  cursor: pointer;
+  display: inline-block;
+  list-style-type: none;
 
-  .number_block {
-    height: 65px;
-    line-height: 65px;
-    text-align: center;
-    color: #fff;
+  li {
+    float: left;
+    width: 40px;
+    line-height: 38px;
+
+    &:hover:not(.disabled_paginate) {
+      color: $rakuten-red;
+    }
+
+    & + li {
+      border-left: 1px solid $gray-lighter;
+    }
   }
 
-  .simple_btn {
-    width: 100%;
-    background-color: #fff;
-    color: $primaryColor;
-    border: 1px solid $primaryColor;
-    height: 25px;
+  .paginate-arrow {
+    color: $gray-dark;
   }
 
-  .highlight {
-    background-color: #cf649a;
-  }
-
-  .plain {
-    background-color: $primaryColor;
+  .disabled_paginate {
+    color: $white;
+    cursor: default;
+    background-color: $gray-lighter;
   }
 }
