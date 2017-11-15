@@ -16,7 +16,7 @@ export const createPageArray = (currentPage, totalPage) => {
     pageArray = _.range(1, currentPage + 3)
   } else if (currentPage + 2 >= totalPage) {
     pageArray = initPageArray.concat(_.range(currentPage - 2, totalPage + 1))
-  }else {
+  } else {
     pageArray = initPageArray.concat(_.range(currentPage - 2, currentPage + 3))
   }
 
