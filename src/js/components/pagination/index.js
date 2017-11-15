@@ -14,7 +14,7 @@ class PagesContainer extends Component {
     return (
       <Pagination
         paginate={this.props.paginate}
-        handleChangePage={this.changePage}
+        handlePageChange={this.changePage}
       />
     )
   }

@@ -4,43 +4,45 @@ import _ from 'lodash'
 import queryString from 'query-string'
 
 import { createPageArray } from 'js/utils'
+import Page from 'js/components/pagination/page'
 
 const Pagination = (props) => {
   const {
     paginate: {
       items_per_page, total
     },
-    handleChangePage
+    handlePageChange
   } = props
 
   const currentPage = parseInt(queryString.parse(location.search).p) || 1
   const totalPage = Math.ceil(total / items_per_page)
   const pageArray = createPageArray(currentPage, totalPage)
 
-  const renderPages = (page, i) => {
-    if (currentPage === page) return <li className="disabled_paginate" key={i}>{page}</li>
-    return <li onClick={() => handleChangePage(page)} key={i}>{page}</li>
-  }
-  const naviPageClass = {
-
-  }
-
   return (
     <div className="pagination-wrapper">
       <ul className="paginate-bar">
-        <li
-          className="paginate-leftarrow"
-          onClick={() => handleChangePage(currentPage - 1, currentPage === 1)}
-        >
-          &laquo;
-        </li>
-        {pageArray.map(renderPages) }
-        <li
-          className="paginate-rightarrow"
-          onClick={() => handleChangePage(currentPage + 1, currentPage === totalPage)}
-        >
-          &raquo;
-        </li>
+        <Page
+          isDisabled={currentPage === 1}
+          content='&laquo;'
+          pageChange={handlePageChange}
+          targetPage={currentPage - 1}
+        />
+        { pageArray.map((page, i) => (
+          <Page
+            key={i}
+            isDisabled={currentPage === page || isNaN(page)}
+            isActive={currentPage === page}
+            content={page.toString()}
+            pageChange={handlePageChange}
+            targetPage={isNaN(page) ? null : page}
+          />
+        )) }
+        <Page
+          isDisabled={currentPage === totalPage}
+          content='&raquo;'
+          pageChange={handlePageChange}
+          targetPage={currentPage + 1}
+        />
       </ul>
     </div>
   )
@@ -51,7 +53,7 @@ Pagination.propTypes = {
     items_per_page: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired
   }),
-  handleChangePage: PropTypes.func.isRequired
+  handlePageChange: PropTypes.func.isRequired
 }
 
 export default Pagination
