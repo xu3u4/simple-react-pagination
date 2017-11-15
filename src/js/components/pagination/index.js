@@ -27,12 +27,13 @@ class PagesContainer extends Component {
 }
 
 PagesContainer.propTypes = {
-  itemsPerPage: PropTypes.number.isRequired,
+  itemsPerPage: PropTypes.number,
   totalItems: PropTypes.number.isRequired,
   reloadPage: PropTypes.bool
 }
 
 PagesContainer.defaultProps = {
+  itemsPerPage: 1,
   reloadPage: true
 }
 
