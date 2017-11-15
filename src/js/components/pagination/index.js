@@ -22,7 +22,7 @@ class PagesContainer extends Component {
 
 PagesContainer.propTypes = {
   paginate: PropTypes.shape({
-    items_per_page: PropTypes.number.isRequired,
+    itemsPerPage: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired
   })
 }
