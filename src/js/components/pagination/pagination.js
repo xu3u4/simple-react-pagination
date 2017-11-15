@@ -6,15 +6,9 @@ import { createPageArray } from 'js/utils'
 import Page from 'js/components/pagination/page'
 
 const Pagination = (props) => {
-  const {
-    paginate: {
-      itemsPerPage, total
-    },
-    handlePageChange
-  } = props
-
+  const { itemsPerPage, totalItems, handlePageChange } = props
   const currentPage = parseInt(queryString.parse(location.search).p) || 1
-  const totalPage = Math.ceil(total / itemsPerPage)
+  const totalPage = Math.ceil(totalItems / itemsPerPage)
   const pageArray = createPageArray(currentPage, totalPage)
 
   return (
@@ -48,10 +42,8 @@ const Pagination = (props) => {
 }
 
 Pagination.propTypes = {
-  paginate: PropTypes.shape({
-    itemsPerPage: PropTypes.number.isRequired,
-    total: PropTypes.number.isRequired
-  }),
+  itemsPerPage: PropTypes.number.isRequired,
+  totalItems: PropTypes.number.isRequired,
   handlePageChange: PropTypes.func.isRequired
 }
 

@@ -18,7 +18,8 @@ class PagesContainer extends Component {
   render () {
     return (
       <Pagination
-        paginate={this.props.paginate}
+        itemsPerPage={this.props.itemsPerPage}
+        totalItems={this.props.totalItems}
         handlePageChange={this.changePage}
       />
     )
@@ -26,10 +27,8 @@ class PagesContainer extends Component {
 }
 
 PagesContainer.propTypes = {
-  paginate: PropTypes.shape({
-    itemsPerPage: PropTypes.number.isRequired,
-    total: PropTypes.number.isRequired
-  }),
+  itemsPerPage: PropTypes.number.isRequired,
+  totalItems: PropTypes.number.isRequired,
   reloadPage: PropTypes.bool
 }
 
