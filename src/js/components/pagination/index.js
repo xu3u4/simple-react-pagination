@@ -5,9 +5,14 @@ import { updateQueryString } from 'js/utils'
 import Pagination from 'js/components/pagination/pagination'
 
 class PagesContainer extends Component {
+  constructor(props) {
+    super(props)
+    this.changePage = this.changePage.bind(this);
+  }
+
   changePage (p, disableClick) {
     if (disableClick) return false
-    updateQueryString({p})
+    updateQueryString({p}, this.props.reloadPage)
   }
 
   render () {
@@ -24,7 +29,12 @@ PagesContainer.propTypes = {
   paginate: PropTypes.shape({
     itemsPerPage: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired
-  })
+  }),
+  reloadPage: PropTypes.bool
+}
+
+PagesContainer.defaultProps = {
+  reloadPage: true
 }
 
 export default PagesContainer

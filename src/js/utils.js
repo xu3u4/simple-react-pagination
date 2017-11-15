@@ -1,10 +1,12 @@
 import queryString from 'query-string'
 import { range } from 'lodash'
 
-export const updateQueryString = (newParams, $window = typeof window === 'undefined' ? {} : window) => {
+export const updateQueryString = (newParams, reloadPage = true, $window = typeof window === 'undefined' ? {} : window) => {
   const queryParams = queryString.stringify(newParams)
-  // $window.history.replaceState({}, '', `http://${$window.location.host}${$window.location.pathname}?${queryParams}`)
-  $window.location.href = `http://${$window.location.host}${$window.location.pathname}?${queryParams}`
+  if (reloadPage) {
+    $window.location.href = `http://${$window.location.host}${$window.location.pathname}?${queryParams}`
+  }
+  $window.history.replaceState({}, '', `http://${$window.location.host}${$window.location.pathname}?${queryParams}`)
 }
 
 export const createPageArray = (currentPage, totalPage) => {
