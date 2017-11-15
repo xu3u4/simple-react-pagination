@@ -2,6 +2,8 @@ $white: #fff;
 $gray-lighter: #ccc;
 $rakuten-red: #bf0000;
 $gray-dark: #555;
+$smaller-paging: 30px;
+$normal-paging: 40px;
 
 .pagination-wrapper {
   text-align: center;
@@ -20,8 +22,12 @@ $gray-dark: #555;
 
   li {
     float: left;
-    width: 40px;
-    line-height: 38px;
+    width: $normal-paging;
+    line-height: $normal-paging;
+    @media only screen and (max-width: 420px) {
+      width: $smaller-paging;
+      line-height: $smaller-paging;
+    }
 
     &:hover:not(.disabled_paginate) {
       color: $rakuten-red;
