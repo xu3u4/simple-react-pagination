@@ -1,4 +1,5 @@
 import queryString from 'query-string'
+import { range } from 'lodash'
 
 export const updateQueryString = (newParams, $window = typeof window === 'undefined' ? {} : window) => {
   const queryParams = queryString.stringify(newParams)
