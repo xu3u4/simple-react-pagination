@@ -1,8 +1,7 @@
 {
   "name": "react-pagination",
-  "version": "0.1.0",
-  "description": "A quick start for react+webpack, which includes basic packages and fundamental settings.",
-  "main": "server.js",
+  "version": "1.0.0",
+  "description": "It is a simple react pagination which also supports RWD.",
   "scripts": {
     "production": "export NODE_ENV=production && webpack && npm start",
     "dev": "export NODE_ENV=development && webpack-dev-server --devtool eval --progress --colors --content-base dist",
@@ -21,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "react-webpack-starterkit"
+    "url": "react-pagination"
   },
   "keywords": [
     "node",
