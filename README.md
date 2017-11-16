@@ -18,6 +18,7 @@ npm run dev
 ## Params
 | Name | Type | Default | Description |
 |--------------|---------|-----------|---------------------------------------------------------|
-| itemsPerPage | Number | 1 | Number of item per page. |
-| totalItems | Number | *Required | The items in total you want to display. |
-| reloadPage | Boolean | true | If true, reload the whole page. If false, the url changes but not the pagination; unless the props value changes and make it re-render. |
+| itemsPerPage | Number | 1 | Number of item to display on every page. |
+| totalItems | Number | *Required | The overall items count. |
+| reloadPage | Boolean | true | If true, reload the whole page. If false, rerender pagination. |
+| changePageCB | Function | *Optional | Callback function after page change. For example, you can call an ajax to get more data. |

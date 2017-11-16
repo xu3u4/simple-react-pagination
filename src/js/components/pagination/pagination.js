@@ -1,13 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import queryString from 'query-string'
 
 import { createPageArray } from 'js/utils'
 import Page from 'js/components/pagination/page'
 
 const Pagination = (props) => {
-  const { itemsPerPage, totalItems, handlePageChange } = props
-  const currentPage = parseInt(queryString.parse(location.search).p) || 1
+  const { itemsPerPage, totalItems, handlePageChange, currentPage } = props
   const totalPage = Math.ceil(totalItems / itemsPerPage)
   const pageArray = createPageArray(currentPage, totalPage)
 
@@ -44,7 +42,8 @@ const Pagination = (props) => {
 Pagination.propTypes = {
   itemsPerPage: PropTypes.number.isRequired,
   totalItems: PropTypes.number.isRequired,
-  handlePageChange: PropTypes.func.isRequired
+  handlePageChange: PropTypes.func.isRequired,
+  currentPage: PropTypes.number.isRequired
 }
 
 export default Pagination
