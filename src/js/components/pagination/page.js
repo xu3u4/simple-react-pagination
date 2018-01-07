@@ -1,19 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
 const Page = (props) => {
   const { isDisabled, isActive, content, pageChange, targetPage } = props
-  const pageClasses = classnames({
-    'disabled_paginate': isDisabled,
-    'active_page': isActive
-  })
+  const statusClass = classnames('is-disabled', { 'is-active': isActive })
 
-  return (
-    <li className={pageClasses} onClick={() => pageChange(targetPage, isDisabled)}>
-      {content}
-    </li>
-  )
+  if (isDisabled || isActive) return <li className={statusClass}>{content}</li>
+  return <li onClick={() => pageChange(targetPage)}>{content}</li>
 }
 
 Page.propTypes = {

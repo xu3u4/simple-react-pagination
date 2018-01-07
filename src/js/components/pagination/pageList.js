@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { createPageArray } from 'js/utils'
 import Page from 'js/components/pagination/page'
 
-const Pagination = (props) => {
+const PageList = (props) => {
   const { itemsPerPage, totalItems, handlePageChange, currentPage } = props
   const totalPage = Math.ceil(totalItems / itemsPerPage)
   const pageArray = createPageArray(currentPage, totalPage)
@@ -14,7 +14,7 @@ const Pagination = (props) => {
       <ul className="paginate-bar">
         <Page
           isDisabled={currentPage === 1}
-          content='&laquo;'
+          content="&laquo;"
           pageChange={handlePageChange}
           targetPage={currentPage - 1}
         />
@@ -30,7 +30,7 @@ const Pagination = (props) => {
         )) }
         <Page
           isDisabled={currentPage === totalPage}
-          content='&raquo;'
+          content="&raquo;"
           pageChange={handlePageChange}
           targetPage={currentPage + 1}
         />
@@ -39,11 +39,11 @@ const Pagination = (props) => {
   )
 }
 
-Pagination.propTypes = {
+PageList.propTypes = {
   itemsPerPage: PropTypes.number.isRequired,
   totalItems: PropTypes.number.isRequired,
   handlePageChange: PropTypes.func.isRequired,
   currentPage: PropTypes.number.isRequired
 }
 
-export default Pagination
+export default PageList

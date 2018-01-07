@@ -1,13 +1,13 @@
 import React from 'react'
 
-import PagesContainer from 'js/components/pagination'
+import Pagination from 'js/components/pagination'
 
 const MainContainer = () => {
-  const itemsPerPage = 5, totalItems = 31
+  const itemsPerPage = 5, totalItems = 100
 
   return (
     <div>
-      <PagesContainer itemsPerPage={itemsPerPage} totalItems={totalItems} />
+      <Pagination itemsPerPage={itemsPerPage} totalItems={totalItems} />
     </div>
   )
 }

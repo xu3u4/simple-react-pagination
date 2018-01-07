@@ -29,7 +29,7 @@ $normal-paging: 40px;
       line-height: $smaller-paging;
     }
 
-    &:hover:not(.disabled_paginate) {
+    &:hover:not(.is-disabled) {
       color: $rakuten-red;
     }
 
@@ -42,11 +42,11 @@ $normal-paging: 40px;
     color: $gray-dark;
   }
 
-  .disabled_paginate, .active_page {
+  .is-disabled, .is-active {
     cursor: default;
   }
 
-  .active_page {
+  .is-active {
     color: $white;
     background-color: $gray-lighter;
   }
