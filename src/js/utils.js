@@ -43,22 +43,17 @@ export const urlUpdateParams = (newParams = {}, reloadPage = true, $window = win
 }
 
 export const createPageArray = (currentPage, totalPage) => {
-  const ellipsis = "..."
-  let initPageArray = [1]
-  let pageArray
+  const total_paginate = 5
+  let shift = 0
 
-  if (totalPage < 6) {
-    pageArray = range(1, totalPage + 1)
-  } else if (currentPage < 5) {
-    pageArray = _.range(1, currentPage + 3)
-  } else if (currentPage + 2 >= totalPage) {
-    pageArray = initPageArray.concat(_.range(currentPage - 2, totalPage + 1))
-  } else {
-    pageArray = initPageArray.concat(_.range(currentPage - 2, currentPage + 3))
+  // render all if less than 5 pages
+  if (totalPage <= total_paginate) return _.range(1, totalPage + 1)
+  let pageArray = _.range(currentPage - 2, currentPage + 3) // currentPage +- 2
+
+  if (pageArray[0] <= 0 ) shift = 1 - pageArray[0]
+  else if(pageArray[total_paginate - 1] > totalPage) {
+    shift = totalPage - pageArray[total_paginate - 1]
   }
 
-  if (pageArray[0] + 1 !== pageArray[1]) pageArray.splice(1, 0, ellipsis)
-  if (pageArray[pageArray.length - 1] !== totalPage) pageArray.push(ellipsis)
-
-  return pageArray
+  return pageArray.map((page) => page + shift)
 }
