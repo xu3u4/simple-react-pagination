@@ -1,4 +1,3 @@
-// import queryString from 'query-string'
 import { range } from 'lodash'
 
 const paramsToQueryString = (params) => {

@@ -34,7 +34,6 @@
     "classnames": "^2.2.5",
     "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
-    "query-string": "^5.0.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
