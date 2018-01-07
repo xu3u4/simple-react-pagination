@@ -12,12 +12,7 @@ const PageList = (props) => {
   return (
     <div className="pagination-wrapper">
       <ul className="paginate-bar">
-        <Page
-          isDisabled={currentPage === 1}
-          content="&laquo;"
-          pageChange={handlePageChange}
-          targetPage={currentPage - 1}
-        />
+        <li onClick={() => handlePageChange(currentPage - 1)}>Prev</li>
         { pageArray.map((page, i) => (
           <Page
             key={i}
@@ -28,12 +23,7 @@ const PageList = (props) => {
             targetPage={isNaN(page) ? null : page}
           />
         )) }
-        <Page
-          isDisabled={currentPage === totalPage}
-          content="&raquo;"
-          pageChange={handlePageChange}
-          targetPage={currentPage + 1}
-        />
+        <li onClick={() => handlePageChange(currentPage + 1)}>Next</li>
       </ul>
     </div>
   )
