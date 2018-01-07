@@ -2,8 +2,7 @@ $white: #fff;
 $gray-lighter: #ccc;
 $rakuten-red: #bf0000;
 $gray-dark: #555;
-$smaller-paging: 30px;
-$normal-paging: 40px;
+$paginate-hight: 38px;
 
 .pagination-wrapper {
   text-align: center;
@@ -14,40 +13,33 @@ $normal-paging: 40px;
 }
 
 .paginate-bar {
-  background-color: $white;
-  border: 1px solid $gray-lighter;
   cursor: pointer;
   display: inline-block;
   list-style-type: none;
 
   li {
+    margin: 2px;
+    background-color: $white;
+    border-radius: 3px;
     float: left;
-    width: $normal-paging;
-    line-height: $normal-paging;
-    @media only screen and (max-width: 420px) {
-      width: $smaller-paging;
-      line-height: $smaller-paging;
-    }
+    width: $paginate-hight;
+    line-height: $paginate-hight;
 
     &:hover:not(.is-disabled) {
-      color: $rakuten-red;
+      background-color: $gray-lighter;
     }
 
-    & + li {
-      border-left: 1px solid $gray-lighter;
+    &.is-active {
+      color: $white;
+      background-color: $rakuten-red;
+    }
+
+    &.is-disabled {
+      cursor: default;
     }
   }
 
   .paginate-arrow {
     color: $gray-dark;
-  }
-
-  .is-disabled, .is-active {
-    cursor: default;
-  }
-
-  .is-active {
-    color: $white;
-    background-color: $gray-lighter;
   }
 }
