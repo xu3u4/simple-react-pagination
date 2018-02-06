@@ -15,13 +15,13 @@ const PageList = (props) => {
       <ul className="paginate-bar">
         <NaviArrow
           isDisabled={currentPage === 1}
-          content="First"
+          content="angle-double-left"
           pageChange={handlePageChange}
           targetPage={1}
         />
         <NaviArrow
           isDisabled={currentPage === 1}
-          content="Prev"
+          content="angle-left"
           pageChange={handlePageChange}
           targetPage={currentPage - 1}
         />
@@ -37,13 +37,13 @@ const PageList = (props) => {
         )) }
         <NaviArrow
           isDisabled={currentPage === totalPage}
-          content="Next"
+          content="angle-right"
           pageChange={handlePageChange}
           targetPage={currentPage + 1}
         />
         <NaviArrow
           isDisabled={currentPage === totalPage}
-          content="Last"
+          content="angle-double-right"
           pageChange={handlePageChange}
           targetPage={totalPage}
         />

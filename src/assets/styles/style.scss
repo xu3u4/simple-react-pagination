@@ -29,13 +29,14 @@ $paginate-hight: 38px;
       background-color: $gray-lighter;
     }
 
+    &.is-disabled {
+      cursor: default;
+      color: $gray-lighter;
+    }
+
     &.is-active {
       color: $white;
       background-color: $rakuten-red;
-    }
-
-    &.is-disabled {
-      cursor: default;
     }
   }
 
