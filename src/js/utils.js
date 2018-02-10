@@ -1,5 +1,9 @@
 import { range } from 'lodash'
 
+export const isEmptyString = (param) => {
+  return typeof param === 'string' && param.length === 0
+}
+
 const paramsToQueryString = (params) => {
   if (_.isEmpty(params)) return ''
   let s = ''

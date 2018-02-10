@@ -2,47 +2,65 @@ $white: #fff;
 $gray-lighter: #ccc;
 $rakuten-red: #bf0000;
 $gray-dark: #555;
-$paginate-hight: 38px;
+$paginate-size: 38px;
 
 .pagination-wrapper {
   text-align: center;
-  // no need on mall
   ul {
     padding: 0;
   }
 }
 
 .paginate-bar {
-  cursor: pointer;
   list-style-type: none;
 
   li {
     display: inline-block;
+  }
 
-    button {
-      margin: 2px;
-      background-color: $white;
-      border-radius: 3px;
-      width: $paginate-hight;
-      height: $paginate-hight;
+  button {
+    cursor: pointer;
+    border: 0;
+    font-size: 14px;
+    -webkit-tap-highlight-color: transparent;
 
-      &:hover:not(.is-disabled) {
-        background-color: $gray-lighter;
-      }
+    &:focus {
+      outline: 0;
+    }
+  }
 
-      &.is-disabled {
-        cursor: default;
-        color: $gray-lighter;
-      }
+  .native-paginate {
+    padding: 0;
+    margin: 2px;
+    background-color: $white;
+    border: 1px solid $gray-lighter;
+    border-radius: 3px;
+    width: $paginate-size;
+    height: $paginate-size;
 
-      &.is-active {
-        color: $white;
-        background-color: $rakuten-red;
-      }
+    &:hover:not(.is-disabled) {
+      border: 0;
+      background-color: $gray-lighter;
+    }
+
+    &.is-active {
+      border: 0;
+      color: $white;
+      background-color: $rakuten-red;
     }
   }
 
   .paginate-arrow {
+    background-color: $white;
     color: $gray-dark;
+
+    &:hover:not(.is-disabled) {
+      color: $rakuten-red;
+    }
+
+    &.is-disabled {
+      cursor: default;
+      color: $gray-lighter;
+    }
   }
 }

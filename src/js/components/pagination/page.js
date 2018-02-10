@@ -1,11 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
+import { isEmptyString } from 'js/utils'
 
 const Page = (props) => {
-  const { isDisabled, isActive, content, pageChange, targetPage } = props
-  const buttonClass = classnames('native-paginate',
+  const {
+    isDisabled,
+    isActive,
+    content,
+    pageChange,
+    targetPage,
+    customClass
+  } = props
+  const buttonClass = classnames(customClass,
     {
+      'native-paginate': isEmptyString(customClass),
       'is-disabled': isDisabled,
       'is-active': isActive
     }
@@ -27,14 +36,17 @@ const Page = (props) => {
 Page.propTypes = {
   isDisabled: PropTypes.bool,
   isActive: PropTypes.bool,
-  content: PropTypes.string.isRequired,
+  content: PropTypes.string,
   pageChange: PropTypes.func.isRequired,
-  targetPage: PropTypes.number
+  targetPage: PropTypes.number,
+  customClass: PropTypes.string
 }
 
 Page.defaultProps = {
   isDisabled: false,
-  isActive: false
+  isActive: false,
+  customClass: '',
+  content: ''
 }
 
 export default Page

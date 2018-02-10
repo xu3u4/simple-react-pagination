@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 import { createPageArray } from 'js/utils'
 import Page from 'js/components/pagination/page'
-import NaviArrow from 'js/components/pagination/naviArrow'
 
 const PageList = (props) => {
   const { itemsPerPage, totalItems, handlePageChange, currentPage } = props
@@ -13,15 +12,15 @@ const PageList = (props) => {
   return (
     <div className="pagination-wrapper">
       <ul className="paginate-bar">
-        <NaviArrow
+        <Page
+          customClass="paginate-arrow icon-angle-double-left"
           isDisabled={currentPage === 1}
-          content="angle-double-left"
           pageChange={handlePageChange}
           targetPage={1}
         />
-        <NaviArrow
+        <Page
+          customClass="paginate-arrow icon-angle-left"
           isDisabled={currentPage === 1}
-          content="angle-left"
           pageChange={handlePageChange}
           targetPage={currentPage - 1}
         />
@@ -35,15 +34,15 @@ const PageList = (props) => {
             targetPage={isNaN(page) ? null : page}
           />
         )) }
-        <NaviArrow
+        <Page
+          customClass="paginate-arrow icon-angle-right"
           isDisabled={currentPage === totalPage}
-          content="angle-right"
           pageChange={handlePageChange}
           targetPage={currentPage + 1}
         />
-        <NaviArrow
+        <Page
+          customClass="paginate-arrow icon-angle-double-right"
           isDisabled={currentPage === totalPage}
-          content="angle-double-right"
           pageChange={handlePageChange}
           targetPage={totalPage}
         />
