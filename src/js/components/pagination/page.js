@@ -4,10 +4,24 @@ import classnames from 'classnames'
 
 const Page = (props) => {
   const { isDisabled, isActive, content, pageChange, targetPage } = props
-  const statusClass = classnames('is-disabled', { 'is-active': isActive })
+  const buttonClass = classnames('native-paginate',
+    {
+      'is-disabled': isDisabled,
+      'is-active': isActive
+    }
+  )
 
-  if (isDisabled || isActive) return <li className={statusClass}>{content}</li>
-  return <li onClick={() => pageChange(targetPage)}>{content}</li>
+  return (
+    <li>
+      <button
+        className={buttonClass}
+        disabled={isDisabled || isActive}
+        onClick={() => pageChange(targetPage)}
+      >
+        {content}
+      </button>
+    </li>
+  )
 }
 
 Page.propTypes = {

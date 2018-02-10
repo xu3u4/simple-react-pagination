@@ -14,29 +14,31 @@ $paginate-hight: 38px;
 
 .paginate-bar {
   cursor: pointer;
-  display: inline-block;
   list-style-type: none;
 
   li {
-    margin: 2px;
-    background-color: $white;
-    border-radius: 3px;
-    float: left;
-    width: $paginate-hight;
-    line-height: $paginate-hight;
+    display: inline-block;
 
-    &:hover:not(.is-disabled) {
-      background-color: $gray-lighter;
-    }
+    button {
+      margin: 2px;
+      background-color: $white;
+      border-radius: 3px;
+      width: $paginate-hight;
+      height: $paginate-hight;
 
-    &.is-disabled {
-      cursor: default;
-      color: $gray-lighter;
-    }
+      &:hover:not(.is-disabled) {
+        background-color: $gray-lighter;
+      }
 
-    &.is-active {
-      color: $white;
-      background-color: $rakuten-red;
+      &.is-disabled {
+        cursor: default;
+        color: $gray-lighter;
+      }
+
+      &.is-active {
+        color: $white;
+        background-color: $rakuten-red;
+      }
     }
   }
 
