@@ -7,14 +7,18 @@ import PageList from './pageList'
 export default class Pagination extends Component {
   static defaultProps = {
     itemsPerPage: 1,
-    reloadPage: true
+    reloadPage: true,
+    paginateClass: '',
+    arrowClass: ''
   }
 
   static propTypes = {
     itemsPerPage: PropTypes.number,
     totalItems: PropTypes.number.isRequired,
     onPageChange: PropTypes.func,
-    reloadPage: PropTypes.bool
+    reloadPage: PropTypes.bool,
+    paginateClass: PropTypes.string,
+    arrowClass: PropTypes.string
   }
 
   constructor(props) {
@@ -39,7 +43,7 @@ export default class Pagination extends Component {
   }
 
   render () {
-    const { itemsPerPage, totalItems } = this.props
+    const { itemsPerPage, totalItems, paginateClass, arrowClass } = this.props
 
     if (!totalItems) return null
     return (
@@ -48,6 +52,8 @@ export default class Pagination extends Component {
         totalItems={totalItems}
         handlePageChange={this.changePage}
         currentPage={this.state.currentPage}
+        paginateClass={paginateClass}
+        arrowClass={arrowClass}
       />
     )
   }

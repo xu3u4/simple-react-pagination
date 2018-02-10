@@ -22,3 +22,5 @@ npm run dev
 | totalItems | Number | *Required | The overall items count. |
 | reloadPage | Boolean | true | If true, reload the whole page. If false, rerender pagination. |
 | changePageCB | Function | *Optional | Callback function after page change. For example, you can call an ajax to get more data. |
+| paginateClass | String | *Optional | Customized class for the paginate. |
+| arrowClass | String | *Optional | Customized class for the navigation arrows. |
