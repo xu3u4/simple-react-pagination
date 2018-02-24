@@ -21,6 +21,6 @@ npm run dev
 | itemsPerPage | Number | 1 | Number of item to display on every page. |
 | totalItems | Number | *Required | The overall items count. |
 | reloadPage | Boolean | true | If true, reload the whole page. If false, rerender pagination. |
-| onPageChange | Function | *Optional | Callback function after page change. For example, you can call an ajax to get more data. |
+| onPageChange | Function | *Optional | Callback function after page change, will return the `new page number`. For example, you can call an ajax to get more data. |
 | paginateClass | String | *Optional | Customized class for the paginate. |
 | arrowClass | String | *Optional | Customized class for the navigation arrows. |
