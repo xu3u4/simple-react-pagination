@@ -7,14 +7,12 @@ const environment = process.env.NODE_ENV || 'development';
 
 module.exports = {
   entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://0.0.0.0:3000',
     './example/index.js'
   ],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
+    publicPath: './'
   },
   module: {
     rules: [
@@ -56,13 +54,6 @@ module.exports = {
     ]
   },
   devtool: 'inline-source-map',
-  devServer: {
-    inline: true,
-    hot: true,
-    host: 'localhost',
-    port: 3000,
-    contentBase: path.join(__dirname, "dist")
-  },
   resolve: {
     modules: [ 'src', 'node_modules' ]
   },
@@ -70,11 +61,25 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: __dirname+'/index.html',
       filename: 'index.html',
-      inject: 'body'
+      inject: 'body',
+      minify: {
+        collapseWhitespace: true,
+        collapseInlineTagWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true
+      }
+    }),
+    new webpack.optimize.ModuleConcatenationPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendor',
+        filename: 'vendor.bundle.js',
+        minChunks: Infinity
+    }),
+    new UglifyJSPlugin({
+      sourceMap: true
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(environment)
-    }),
-    new webpack.HotModuleReplacementPlugin()
+    })
   ]
 }

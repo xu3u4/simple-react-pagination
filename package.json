@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "It is a simple react pagination which also supports RWD.",
   "scripts": {
-    "production": "export NODE_ENV=production && webpack && npm start",
-    "dev": "export NODE_ENV=development && webpack-dev-server --devtool eval --progress --colors --content-base dist",
-    "start": "nodemon server.js",
+    "production": "export NODE_ENV=production && webpack --config ./webpack.prod.config.js",
+    "dev": "export NODE_ENV=development && webpack-dev-server --devtool eval --progress --colors --content-base",
     "eslint": "eslint src --fix",
     "test:watch": "jest test --watch",
     "test": "jest test"
@@ -64,6 +63,7 @@
     "sass-loader": "^6.0.6",
     "sinon": "^4.0.1",
     "style-loader": "^0.19.0",
+    "uglifyjs-webpack-plugin": "^1.1.6",
     "webpack": "^3.4.1",
     "webpack-dev-server": "^2.6.1"
   }
