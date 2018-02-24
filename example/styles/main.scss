@@ -1,0 +1,17 @@
+.title {
+  font-size: 30px;
+  text-align: center;
+}
+
+.block {
+  border: 2px solid #003366;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 20px;
+
+  .mode-name {
+    color: #595959;
+    font-weight: bold;
+    font-size: 20px;
+  }
+}
