@@ -3,7 +3,7 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
-const environment = process.env.NODE_ENV || 'development';
+const environment = 'development';
 
 module.exports = {
   entry: [

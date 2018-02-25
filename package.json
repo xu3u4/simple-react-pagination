@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "It is a simple react pagination which also supports RWD.",
   "scripts": {
-    "production": "export NODE_ENV=production && webpack --config ./webpack.prod.config.js",
-    "dev": "export NODE_ENV=development && webpack-dev-server --devtool eval --progress --colors --content-base",
+    "production": "webpack --config ./webpack.prod.config.js",
+    "dev": "webpack-dev-server --devtool eval --progress --colors --content-base",
     "eslint": "eslint src --fix",
     "test:watch": "jest test --watch",
     "test": "jest test"
