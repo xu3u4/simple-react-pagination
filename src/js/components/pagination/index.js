@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import 'assets/styles/icon-font.scss'
-import 'assets/styles/style.scss'
-import { getUrlParams, urlUpdateParams } from 'js/utils'
+import 'Assets/styles/icon-font.scss'
+import 'Assets/styles/style.scss'
+import { getUrlParams, urlUpdateParams } from 'utils'
 import PageList from './pageList'
 
 export default class Pagination extends Component {

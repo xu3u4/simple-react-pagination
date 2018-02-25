@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Pagination from 'js/components/pagination'
+import Pagination from 'components/pagination'
 import { getUrlParams } from './utils'
 
 export default class Spa extends Component {

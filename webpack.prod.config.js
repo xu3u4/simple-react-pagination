@@ -55,7 +55,10 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   resolve: {
-    modules: [ 'src', 'node_modules' ]
+    modules: [ 'src/js', 'node_modules' ],
+    alias: {
+      Assets: path.resolve(__dirname, 'src/assets/')
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({

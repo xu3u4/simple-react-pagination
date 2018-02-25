@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
-import { createPageArray, isEmptyString } from 'js/utils'
-import Page from 'js/components/pagination/page'
+import { createPageArray, isEmptyString } from 'utils'
+import Page from './page'
 
 const PageList = (props) => {
   const {

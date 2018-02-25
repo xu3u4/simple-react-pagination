@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import { isEmptyString } from 'js/utils'
+import { isEmptyString } from 'utils'
 
 const Page = (props) => {
   const {
