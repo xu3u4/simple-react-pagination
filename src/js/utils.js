@@ -4,10 +4,11 @@ export const isEmptyString = (param) => {
   return typeof param === 'string' && param.length === 0
 }
 
-const paramsToQueryString = (params) => {
-  if (_.isEmpty(params)) return ''
-  let s = ''
+export const paramsToQueryString = (params) => {
   const keys = Object.keys(params)
+  if (keys.length === 0) return ''
+
+  let s = ''
   keys.forEach(k => {
     if (k === keys.slice(0)[0]) s += '?'
     s += `${k}=${encodeURIComponent(params[k])}`
@@ -18,9 +19,9 @@ const paramsToQueryString = (params) => {
 }
 
 export const getUrlParams = () => {
-  if (location.search) {
+  if (window.location.search) {
     const params = {}
-    const querys = location.search.substring(1).split('&')
+    const querys = window.location.search.substring(1).split('&')
 
     for (let i = 0; i < querys.length; i++) {
       const param = querys[i].split('=')
@@ -31,17 +32,17 @@ export const getUrlParams = () => {
   return {}
 }
 
-export const urlUpdateParams = (newParams = {}, reloadPage = true, $window = window || {}) => {
-  const { origin, pathname } = $window.location
+export const urlUpdateParams = (newParams = {}, reloadPage = true) => {
+  if (Object.keys(newParams).length === 0) return
 
-  if (_.isEmpty(newParams)) return
+  const { origin, pathname } = window.location
   const queryParams = paramsToQueryString(newParams)
   const newUrl = `${origin}${pathname}${queryParams}`
 
   if (reloadPage) {
-    $window.location.href = newUrl // eslint-disable-line no-param-reassign
+    window.location.href = newUrl // eslint-disable-line no-param-reassign
   } else {
-    $window.history.replaceState({}, '', newUrl)
+    window.history.replaceState({}, '', newUrl)
   }
 }
 
@@ -50,8 +51,8 @@ export const createPageArray = (currentPage, totalPage) => {
   let shift = 0
 
   // render all if less than 5 pages
-  if (totalPage <= total_paginate) return _.range(1, totalPage + 1)
-  let pageArray = _.range(currentPage - 2, currentPage + 3) // currentPage +- 2
+  if (totalPage <= total_paginate) return range(1, totalPage + 1)
+  let pageArray = range(currentPage - 2, currentPage + 3) // currentPage +- 2
 
   if (pageArray[0] <= 0 ) shift = 1 - pageArray[0]
   else if(pageArray[total_paginate - 1] > totalPage) {
